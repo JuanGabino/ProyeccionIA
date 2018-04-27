@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Proyección IA</title>
+</head>
+<body>
+
+
+<h2>Persona Natural</h2><br/>
+<a href="/person/new">Add</a>
+
+<table class="table">
+<thead>
+  <tr>
+  	<td>Id</td>
+  	<td>DNI</td>
+  	<td>Nombre</td>
+  	<td>Ingreso Bruto</td>
+  	<td>Impuesto Total</td>
+  	<td>Ingreso Total Neto</td>
+  </tr>
+</thead>
+       
+   <tbody>
+  <tr th:each="person : ${persons}">
+  	<td th:text="${person.id}"></td>
+  	<td th:text="${person.dni}"></td>
+  	<td th:text="${person.nombre}"></td>
+  	<td th:text="${person.ingAnual}"></td>
+  	<td th:text="${person.impTotal}"></td>
+  	<td th:text="${person.ingTotal}"></td>
+  </tr>
+</tbody>
+</table>
+
+
+</body>
+</html>

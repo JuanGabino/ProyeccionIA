@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Nueva Persona</title>
+</head>
+<body>
+
+
+<div class="container">
+<h2>Nueva Persona Natural</h2>
+<form action="#" th:action="@{/person/new}" th:object="${person}" method="post">
+	<table class="table">
+		
+		<tr>
+			<td>DNI:</td>
+			<td><input type="text" th:field="*{dni}"/></td>
+			<td th:if="${#fields.hasErrors('dni')}"
+			    th:errors="*{dni}">DNI Error</td>
+		</tr>
+		
+		<tr>
+			<td>Nombre:</td>
+			<td><input type="text" th:field="*{nombre}"/></td>
+			<td th:if="${#fields.hasErrors('nombre')}"
+			    th:errors="*{nombre}">Nombre Error</td>
+		</tr>
+		
+		<tr>
+			<td>Ingreso Anual:</td>
+			<td><input type="text" th:field="*{ingAnual}"/></td>
+			<td th:if="${#fields.hasErrors('ingAnual')}"
+			    th:errors="*{ingAnual}">Ingreso Anual Error</td>
+		</tr>
+				
+		<tr>
+			<td></td>
+			<td><input type="submit" value="enviar"/>
+			<td></td>
+		</tr>
+	</table>
+
+
+</form>
+<br/>
+<a href="/person/list">Listar Personas</a>	
+</div>
+
+</body>
+</html>
