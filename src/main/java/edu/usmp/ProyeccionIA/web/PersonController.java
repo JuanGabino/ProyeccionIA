@@ -33,6 +33,9 @@ public class PersonController {
 			return "personForm";
 		}
 		
+		person.setResulDni(String.format("%08d", person.getDni()));
+		
+		person.setIngAnual(person.getIngInd()*12+person.getIngDep()*14);
 		
 		 if (person.getIngAnual()<7*4050) {
              person.setRentGravable(person.getIngAnual());}
@@ -41,34 +44,33 @@ public class PersonController {
              }
 		
 		 if(person.getRentGravable()<=20250){
-			 person.setImpTotal(person.getRentGravable()*0.08);
+			 person.setImpTotal((double)Math.round(person.getRentGravable()*0.08));
 			 person.setIngTotal(person.getIngAnual()-person.getImpTotal());
 		 }
          
 		 if(person.getRentGravable()<=81000 && person.getRentGravable()>20250){
-			 person.setImpTotal(20250*0.08+((person.getRentGravable()-20250)*0.14));
+			 person.setImpTotal((double)Math.round(20250*0.08+((person.getRentGravable()-20250)*0.14)));
 			 person.setIngTotal(person.getIngAnual()-person.getImpTotal());
 		 }
 		 
 		 if(person.getRentGravable()<=141750 && person.getRentGravable()>81000){
-			 person.setImpTotal(20250*0.08+60750*0.14+
-					 ((person.getRentGravable()-81000)*0.17));
+			 person.setImpTotal((double)Math.round(20250*0.08+60750*0.14+
+					 ((person.getRentGravable()-81000)*0.17)));
 			 person.setIngTotal(person.getIngAnual()-person.getImpTotal());
 		 }
 		 
 		 if(person.getRentGravable()<=182250 && person.getRentGravable()>141750){
-			 person.setImpTotal(20250*0.08+60750*0.14+60750*0.17+
-					 ((person.getRentGravable()-141750)*0.2));
+			 person.setImpTotal((double)Math.round(20250*0.08+60750*0.14+60750*0.17+
+					 ((person.getRentGravable()-141750)*0.2)));
 			 person.setIngTotal(person.getIngAnual()-person.getImpTotal());
 		 }
 		 
 		 if(person.getRentGravable()>182250){
-			 person.setImpTotal(20250*0.08+60750*0.14+60750*0.17+40500*0.2+
-					 ((person.getRentGravable()-182250)*0.3));
+			 person.setImpTotal((double)Math.round(20250*0.08+60750*0.14+60750*0.17+40500*0.2+
+					 ((person.getRentGravable()-182250)*0.3)));
 			 person.setIngTotal(person.getIngAnual()-person.getImpTotal());
 		 }
-		 
-		 		
+		 		 		
 		personRepository.save(person);
 		return "redirect:/person/list";
 	}

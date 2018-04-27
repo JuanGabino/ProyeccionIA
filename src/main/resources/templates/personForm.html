@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Nueva Persona</title>
+<title>Nueva Persona Natural</title>
 </head>
 <body>
 
@@ -27,10 +27,17 @@
 		</tr>
 		
 		<tr>
-			<td>Ingreso Anual:</td>
-			<td><input type="text" th:field="*{ingAnual}"/></td>
-			<td th:if="${#fields.hasErrors('ingAnual')}"
-			    th:errors="*{ingAnual}">Ingreso Anual Error</td>
+			<td>Ingreso Independiente:</td>
+			<td><input type="text" th:field="*{ingInd}"/></td>
+			<td th:if="${#fields.hasErrors('ingInd')}"
+			    th:errors="*{ingInd}">Ingreso Independiente Error</td>
+		</tr>
+		
+		<tr>
+			<td>Ingreso Dependiente:</td>
+			<td><input type="text" th:field="*{ingDep}"/></td>
+			<td th:if="${#fields.hasErrors('ingDep')}"
+			    th:errors="*{ingDep}">Ingreso Dependiente Error</td>
 		</tr>
 				
 		<tr>

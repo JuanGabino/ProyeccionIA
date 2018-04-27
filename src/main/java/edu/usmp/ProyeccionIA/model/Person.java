@@ -18,21 +18,27 @@ public class Person implements Serializable{
 	private Integer id;
 	
 	@NotNull
-	@Min(10000000)
+	@Min(1000000)
 	@Max(99999999)
 	private Integer dni;
 	
 	@NotNull
-	@Size(min=2, max=30,message="mi mensaje")
+	@Size(min=2, max=30)
 	private String nombre;
 	
 	@NotNull
 	@Min(0)	
-	private Double ingAnual;
+	private Double ingInd;
 	
+	@NotNull
+	@Min(0)	
+	private Double ingDep;
+	
+	private Double ingAnual;
 	private Double impTotal;	
 	private Double ingTotal;
 	private Double rentGravable;
+	private String resulDni;
 	
 	public Integer getId() {
 		return id;
@@ -45,8 +51,8 @@ public class Person implements Serializable{
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-	public Integer getDni() {
+	}		
+	public Integer getDni() {		
 		return dni;
 	}
 	public void setDni(Integer dni) {
@@ -76,5 +82,22 @@ public class Person implements Serializable{
 	public void setRentGravable(Double rentGravable) {
 		this.rentGravable = rentGravable;
 	}
-			
+	public String getResulDni() {
+		return resulDni;
+	}
+	public void setResulDni(String resulDni) {
+		this.resulDni = resulDni;
+	}
+	public Double getIngInd() {
+		return ingInd;
+	}
+	public void setIngInd(Double ingInd) {
+		this.ingInd = ingInd;
+	}
+	public Double getIngDep() {
+		return ingDep;
+	}
+	public void setIngDep(Double ingDep) {
+		this.ingDep = ingDep;
+	}				
 }
